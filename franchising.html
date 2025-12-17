@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franchising - Clinton Oh | Transform Your Business into a Franchise Empire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1A1A1A;
+            background: #FFFFFF;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #FFFFFF;
+            height: 70px;
+            box-shadow: 0 2px 15px rgba(43, 76, 140, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            border-bottom: 1px solid rgba(43, 76, 140, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2B4C8C;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+            color: #4A90E2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1A1A1A;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #4A90E2;
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(135deg, #2B4C8C, #4A90E2);
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #2B4C8C;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2B4C8C 0%, #4A90E2 100%);
+            color: white;
+            padding: 120px 5% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FF6B35;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.4);
+        }
+
+        .section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2B4C8C;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .franchise-process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(43, 76, 140, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(43, 76, 140, 0.2);
+            border-color: #4A90E2;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FF6B35, #e55a2b);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 25px;
+        }
+
+        .process-step h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2B4C8C;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #FF6B35;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(43, 76, 140, 0.15);
+        }
+
+        .benefit-card h4 {
+            color: #2B4C8C;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .testimonial-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            padding: 80px 5%;
+            margin: 80px 0;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(43, 76, 140, 0.1);
+        }
+
+        .testimonial-text {
+            font-size: 1.3em;
+            color: #2B4C8C;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2B4C8C, #4A90E2);
+        }
+
+        .author-info h5 {
+            color: #2B4C8C;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .stats-section {
+            background: #2B4C8C;
+            color: white;
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 3em;
+            font-weight: 700;
+            color: #FF6B35;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #FF6B35 0%, #e55a2b 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #FF6B35;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: #1A1A1A;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: #4A90E2;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .section-header h2 {
+                font-size: 2em;
+            }
+
+            .franchise-process {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 2em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 0 3%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Clinton Oh</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Clinton</a></li>
+            <li><a href="coaching.html">Coaching Programs</a></li>
+            <li><a href="franchising.html" class="active">Franchising</a></li>
+            <li><a href="mymanager.html">MyManager CRM</a></li>
+            <li><a href="blog.html">Blog & Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>GET YOUR BUSINESS & BRAND READY FOR FRANCHISING</h1>
+            <p>Transform your successful business into a scalable franchise empire. I'll guide you through every step of the franchising process, from initial assessment to nationwide expansion.</p>
+            <a href="#contact" class="cta-button">Start Your Franchise Journey</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2>The Franchising Process</h2>
+            <p>A proven 6-step system to transform your business into a franchise-ready operation that attracts investors and generates recurring revenue streams.</p>
+        </div>
+
+        <div class="franchise-process">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Business Assessment</h3>
+                <p>Comprehensive evaluation of your business model, profitability, and franchising potential. We analyze market demand, competition, and scalability factors.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Brand Development</h3>
+                <p>Create a compelling franchise brand identity that attracts quality franchisees. Develop your unique value proposition and competitive advantages.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Operations Manual</h3>
+                <p>Document every aspect of your business operations to ensure consistency across all franchise locations. Create detailed training materials and procedures.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Legal Structure</h3>
+                <p>Establish the proper legal framework including franchise agreements, disclosure documents, and compliance with federal and state regulations.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <h3>Marketing System</h3>
+                <p>Develop comprehensive marketing strategies and materials to attract qualified franchisees. Create lead generation systems and conversion processes.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">6</div>
+                <h3>Launch & Support</h3>
+                <p>Launch your franchise program with ongoing support systems for franchisees including training, marketing assistance, and operational guidance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2>Benefits of Franchising Your Business</h2>
+            <p>Discover how franchising can accelerate your growth and create multiple revenue streams while maintaining quality control.</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h4>Rapid Expansion</h4>
+                <p>Scale your business quickly without the capital investment required for company-owned locations. Let franchisees fund the growth.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Multiple Revenue Streams</h4>
+                <p>Generate income through franchise fees, ongoing royalties, marketing fees, and product sales to franchisees.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Reduced Risk</h4>
+                <p>Minimize financial risk as franchisees invest their own capital while you maintain brand control and receive ongoing revenue.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Brand Recognition</h4>
+                <p>Achieve widespread brand recognition and market penetration faster than traditional expansion methods.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Motivated Partners</h4>
+                <p>Franchisees are invested owners who are highly motivated to succeed, often outperforming employee-managed locations.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Exit Strategy</h4>
+                <p>Create a valuable, sellable asset with multiple revenue streams that can provide long-term financial security.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Businesses Franchised</p>
+            </div>
+            <div class="stat-item">
+                <h3>$100M+</h3>
+                <p>Franchise Revenue Generated</p>
+            </div>
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>95%</h3>
+                <p>Client Success Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="testimonial">
+            <p class="testimonial-text">"Clinton transformed our single location restaurant into a thriving franchise with 12 locations across three states. His systematic approach and ongoing support made the difference between success and failure."</p>
+            <div class="testimonial-author">
+                <div class="author-image"></div>
+                <div class="author-info">
+                    <h5>Sarah Martinez</h5>
+                    <p>Founder, Fresh Bowl Franchise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2>Is Your Business Ready to Franchise?</h2>
+            <p>Not every business is suitable for franchising. Here are the key indicators that your business has franchise potential.</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h4>Proven Profitability</h4>
+                <p>Your business generates consistent profits with clear financial metrics and established customer base.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Replicable Systems</h4>
+                <p>Your operations can be documented and replicated by others without requiring specialized expertise.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Market Demand</h4>
+                <p>Strong market demand exists in multiple geographic locations for your products or services.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Unique Value Proposition</h4>
+                <p>Your business offers something distinctive that differentiates it from competitors in the market.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Scalable Model</h4>
+                <p>Your business model can be scaled efficiently without losing quality or requiring excessive oversight.</p>
+            </div>
+
+            <div class="benefit-card">
+                <h4>Strong Leadership</h4>
+                <p>You have the vision, resources, and commitment to support a network of franchise partners.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Franchise Your Business?</h2>
+        <p>Schedule a confidential consultation to assess your franchising potential and create a customized roadmap for success.</p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="cta-button">Schedule Consultation</a>
+            <a href="tel:+1234567890" class="btn-secondary">Call Now</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Clinton Oh. All rights reserved.</p>
+        <p>Entrepreneur, Coach, Investor - Transforming Dreams Into Reality</p>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="coaching.html">Coaching</a>
+            <a href="franchising.html">Franchising</a>
+            <a href="mymanager.html">MyManager CRM</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>
