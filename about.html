@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Clinton - Clinton Oh | Entrepreneur, Coach, Investor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1A1A1A;
+            background-color: #FFFFFF;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 80px;
+            background: #2B4C8C;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 20px rgba(43, 76, 140, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: #FF6B35;
+            transform: translateY(-2px);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2B4C8C 0%, #4A90E2 100%);
+            padding: 100px 2rem 80px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFFFFF, #FF6B35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-intro {
+            padding: 80px 0;
+            background: #FFFFFF;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2B4C8C;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #1A1A1A;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(43, 76, 140, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .expertise-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2B4C8C;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: #FFFFFF;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .expertise-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2B4C8C;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .ventures-section {
+            padding: 80px 0;
+            background: #FFFFFF;
+        }
+
+        .ventures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .venture-card {
+            background: linear-gradient(135deg, #2B4C8C 0%, #4A90E2 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: #FFFFFF;
+            transition: transform 0.3s ease;
+        }
+
+        .venture-card:hover {
+            transform: scale(1.05);
+        }
+
+        .venture-card img {
+            width: 100px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .venture-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .venture-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .philanthropy-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #FF6B35 0%, #ff8f5c 100%);
+            color: #FFFFFF;
+        }
+
+        .philanthropy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .philanthropy-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .philanthropy-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .philanthropy-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2B4C8C 0%, #4A90E2 100%);
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .cta-content h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FF6B35;
+            color: #FFFFFF;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .footer {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #FFFFFF;
+            color: #2B4C8C;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #FFFFFF;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid, .philanthropy-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .expertise-grid, .ventures-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .navbar {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .expertise-card, .venture-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Clinton Oh</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Clinton</a></li>
+            <li><a href="coaching.html">Coaching Programs</a></li>
+            <li><a href="franchising.html">Franchising</a></li>
+            <li><a href="mymanager.html">MyManager CRM</a></li>
+            <li><a href="blog.html">Blog & Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>About Clinton Oh</h1>
+                <p>Entrepreneur, Coach, Investor - Transforming Dreams Into Reality</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-intro">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Meet Clinton</h2>
+                    <p>Clinton is a seasoned entrepreneur and CEO of multiple franchise companies. Through his company, Next Level Media, he leverages modern technology to revolutionize business operations and foster growth.</p>
+                    <p>His personal coaching program, Be Aligned, blends vast experience with custom technology for unparalleled results in personal and business success. Renowned for problem-solving, Clinton's extensive network ensures success in overcoming hurdles.</p>
+                    <p>Clinton has come a long way from turning a family business into a nationwide franchise. He is known to be a game changer in his field and is always pushing for the next level, diversifying his skills and portfolio.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/clinton2-1920w.png" alt="Clinton Oh">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Areas of Expertise</h2>
+                <p>Known for his skills in building systems and branding, Clinton works with businesses looking to systematize, franchise, and scale</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/arrows-190w.png" alt="Systems">
+                    <h3>Systems & Processes</h3>
+                    <p>Building scalable systems that drive efficiency and growth across all business operations</p>
+                </div>
+                <div class="expertise-card">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/co+1-192w.png" alt="Branding">
+                    <h3>Branding & Marketing</h3>
+                    <p>Creating powerful brand identities that resonate with target audiences and drive results</p>
+                </div>
+                <div class="expertise-card">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/co+2-192w.png" alt="Franchising">
+                    <h3>Franchising</h3>
+                    <p>Transforming successful businesses into scalable franchise opportunities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ventures-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Business Ventures</h2>
+                <p>From real estate to restaurants, SaaS companies to various niche businesses - Clinton provides value across industries</p>
+            </div>
+            <div class="ventures-grid">
+                <div class="venture-card">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/nextlevelwhite-192w.png" alt="Next Level Media">
+                    <h3>Next Level Media</h3>
+                    <p>Leveraging modern technology to revolutionize business operations</p>
+                </div>
+                <div class="venture-card">
+                    <h3>Be Aligned Coaching</h3>
+                    <p>Personal coaching program blending experience with custom technology</p>
+                </div>
+                <div class="venture-card">
+                    <h3>MyManager CRM</h3>
+                    <p>Groundbreaking CRM and marketing tool for businesses of all sizes</p>
+                </div>
+                <div class="venture-card">
+                    <h3>Franchise Development</h3>
+                    <p>CEO of multiple franchise companies across various industries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="philanthropy-section">
+        <div class="container">
+            <div class="philanthropy-content">
+                <div class="philanthropy-text">
+                    <h2>Giving Back</h2>
+                    <p>A committed philanthropist, Clinton supports children worldwide through his nonprofit, Operation Child Rescue. His dedication to making a positive impact extends far beyond business success.</p>
+                    <p>Through Operation Child Rescue, Clinton works tirelessly to protect and support vulnerable children, demonstrating that true success includes giving back to those who need it most.</p>
+                </div>
+                <div class="philanthropy-image">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/Family-977w.jpg" alt="Philanthropy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Elevate Your Business?</h2>
+                <p>Clinton and his team are here to help you transform your dreams into reality. Whether you're looking to systematize, franchise, or scale your business, we have the expertise and network to ensure your success.</p>
+                <a href="contact.html" class="cta-button">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Clinton Oh. All rights reserved. Transforming Dreams Into Reality.</p>
+        </div>
+    </footer>
+</body>
+</html>
