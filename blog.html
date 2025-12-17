@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Insights - Clinton Oh | Entrepreneur, Coach, Investor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2B4C8C;
+            --secondary: #4A90E2;
+            --accent: #FF6B35;
+            --background: #FFFFFF;
+            --text: #1A1A1A;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+            padding-top: 80px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--background);
+            box-shadow: 0 2px 20px rgba(43, 76, 140, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 5% 80px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .featured-post {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .featured-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .featured-content .meta {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .featured-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .read-more-btn {
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .read-more-btn:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .featured-image {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content .category {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .card-content h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-content .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .card-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .categories-section {
+            background: #f8f9fa;
+            padding: 80px 5%;
+            margin: 60px 0;
+        }
+
+        .categories-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .category-card h5 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-content h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: var(--accent);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #e55a2b;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 40px 5%;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .featured-post {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Clinton Oh</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Clinton</a></li>
+            <li><a href="coaching.html">Coaching Programs</a></li>
+            <li><a href="franchising.html">Franchising</a></li>
+            <li><a href="mymanager.html">MyManager CRM</a></li>
+            <li><a href="blog.html" class="active">Blog & Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Blog & Insights</h1>
+            <p>Transforming Dreams Into Reality Through Strategic Insights and Proven Methodologies</p>
+        </div>
+    </section>
+
+    <div class="blog-container">
+        <div class="section-header">
+            <h2>Latest Insights</h2>
+            <p>Discover the strategies and mindset shifts that successful entrepreneurs use to build thriving businesses and achieve sustainable growth.</p>
+        </div>
+
+        <article class="featured-post">
+            <div class="featured-content">
+                <h3>Get Your Business & Brand Ready for Franchising</h3>
+                <div class="meta">Featured • January 15, 2024</div>
+                <p>Franchising represents one of the most powerful pathways to exponential business growth. Learn the essential steps to transform your successful local business into a scalable franchise system that attracts investors and creates lasting value.</p>
+                <a href="#" class="read-more-btn">Read Full Article</a>
+            </div>
+            <div class="featured-image">
+                <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/Family-977w.jpg" alt="Business franchising growth">
+            </div>
+        </article>
+
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="card-image">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/nextlevelwhite-192w.png" alt="Next level business growth">
+                </div>
+                <div class="card-content">
+                    <span class="category">Leadership</span>
+                    <h4>Unlock Your Potential & Get to the Next Level</h4>
+                    <div class="date">January 10, 2024</div>
+                    <p>Every entrepreneur reaches plateaus in their journey. Discover the proven strategies and mindset shifts that separate successful business owners from those who remain stuck.</p>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="card-image">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/co+1-192w.png" alt="Coaching methodology">
+                </div>
+                <div class="card-content">
+                    <span class="category">Coaching</span>
+                    <h4>The Power of Strategic Business Coaching</h4>
+                    <div class="date">January 5, 2024</div>
+                    <p>How strategic coaching transforms struggling businesses into market leaders. Real case studies and actionable insights from successful coaching relationships.</p>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="card-image">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/arrows-271w.png" alt="Business growth arrows">
+                </div>
+                <div class="card-content">
+                    <span class="category">Growth</span>
+                    <h4>5 Critical Mistakes That Kill Business Growth</h4>
+                    <div class="date">December 28, 2023</div>
+                    <p>Avoid the common pitfalls that prevent businesses from scaling. Learn from the mistakes of others and implement proven systems for sustainable growth.</p>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="card-image">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/co+2-192w.png" alt="Investment strategy">
+                </div>
+                <div class="card-content">
+                    <span class="category">Investment</span>
+                    <h4>Smart Investment Strategies for Entrepreneurs</h4>
+                    <div class="date">December 20, 2023</div>
+                    <p>Building wealth beyond your primary business requires strategic thinking. Discover investment approaches that complement your entrepreneurial journey.</p>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="card-image">
+                    Business Systems
+                </div>
+                <div class="card-content">
+                    <span class="category">Systems</span>
+                    <h4>Building Scalable Business Systems</h4>
+                    <div class="date">December 15, 2023</div>
+                    <p>The difference between a job and a business lies in systems. Learn how to create processes that work without your constant involvement.</p>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="card-image">
+                    Market Leadership
+                </div>
+                <div class="card-content">
+                    <span class="category">Strategy</span>
+                    <h4>From Competitor to Market Leader</h4>
+                    <div class="date">December 10, 2023</div>
+                    <p>Positioning your business as the go-to solution in your market requires strategic thinking and consistent execution. Here's how to dominate your niche.</p>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <section class="categories-section">
+        <div class="section-header">
+            <h2>Explore by Category</h2>
+            <p>Find the insights most relevant to your current business challenges and goals</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">F</div>
+                <h5>Franchising</h5>
+                <p>Learn how to scale your business through franchising and create multiple revenue streams.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">C</div>
+                <h5>Coaching</h5>
+                <p>Discover proven coaching methodologies and leadership principles that drive results.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">I</div>
+                <h5>Investment</h5>
+                <p>Strategic investment advice for entrepreneurs looking to build long-term wealth.</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">G</div>
+                <h5>Growth</h5>
+                <p>Actionable strategies for sustainable business growth and market expansion.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h3>Stay Ahead of the Curve</h3>
+            <p>Get weekly insights and exclusive strategies delivered directly to your inbox. Join thousands of entrepreneurs transforming their businesses.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Clinton Oh. All rights reserved. Entrepreneur, Coach, Investor - Transforming Dreams Into Reality.</p>
+    </footer>
+</body>
+</html>
